@@ -24,7 +24,7 @@ function displayMovieList(){
 	document.getElementById('movieRecap').innerHTML = "<div class='page-header'><h3>La vidéothèque contient actuellement <strong>"+(movieList.length-1)+"</strong> films !</h3></div>";
 }
 
-function aggregatecolumns(columnToComplete, columnToSuppress, newName){
+function aggregateColumns(columnToComplete, columnToSuppress, newName){
 	var colToCompleteIndex = movieList[0].indexOf(columnToComplete);
 	var colToSuppressIndex = movieList[0].indexOf(columnToSuppress);
 	movieList[0][actor1Index] = newName;
