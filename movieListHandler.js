@@ -9,7 +9,8 @@ function initialize(){
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
 				movieList = JSON.parse(xhr.response);	
-				aggregateActors();
+				aggregateColumns('ACTEUR', 'ACTEUR2', 'ACTEURS');
+				aggregateColumns('GENRE I', 'GENRE II', 'GENRES');
 				displayMovieList();
 				manageFilters();
 			}
@@ -23,15 +24,15 @@ function displayMovieList(){
 	document.getElementById('movieRecap').innerHTML = "<div class='page-header'><h3>La vidéothèque contient actuellement <strong>"+(movieList.length-1)+"</strong> films !</h3></div>";
 }
 
-function aggregateActors(movieArray){
-	var actor1Index = movieList[0].indexOf('ACTEUR');
-	var actor2Index = movieList[0].indexOf('ACTEUR2');
-	movieList[0][actor1Index] = "ACTEURS";
+function aggregatecolumns(columnToComplete, columnToSuppress, newName){
+	var colToCompleteIndex = movieList[0].indexOf(columnToComplete);
+	var colToSuppressIndex = movieList[0].indexOf(columnToSuppress);
+	movieList[0][actor1Index] = newName;
 	for(var i = 1;i < movieList.length;i++){
-		if(movieList[i][actor2Index] != ""){
-			movieList[i][actor1Index] = movieList[i][actor1Index]+", "+movieList[i][actor2Index];
+		if(movieList[i][colToSuppressIndex] != ""){
+			movieList[i][colToCompleteIndex] = movieList[i][colToCompleteIndex]+", "+movieList[i][colToSuppressIndex];
 		}
-		movieList[i].splice(actor2Index,1);
+		movieList[i].splice(colToSuppressIndex,1);
 	}
 }
 
