@@ -28,6 +28,7 @@ function aggregateColumns(columnToComplete, columnToSuppress, newName){
 	var colToCompleteIndex = movieList[0].indexOf(columnToComplete);
 	var colToSuppressIndex = movieList[0].indexOf(columnToSuppress);
 	movieList[0][colToCompleteIndex] = newName;
+	movieList[0].splice(colToSuppressIndex,1);
 	for(var i = 1;i < movieList.length;i++){
 		if(movieList[i][colToSuppressIndex] != ""){
 			movieList[i][colToCompleteIndex] = movieList[i][colToCompleteIndex]+", "+movieList[i][colToSuppressIndex];
