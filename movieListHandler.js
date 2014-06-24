@@ -77,7 +77,7 @@ function displayFilteredList(){
 function resetList(){
 	setFilters = new Array();
 	filterList.forEach(function(filter){
-		document.getElementById(filter['aggregatedColumns']+'_Set').value = "";
+		document.getElementById(filter['aggregatedColumn']+'_Set').value = "";
 	});
 	displayMovieList();
 }
