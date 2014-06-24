@@ -22,11 +22,11 @@ function manageFilter(filterKey){
 }
 
 function getFilterValues(filterKey){
-	var filterIndex = movieList[0].indexOf(filterKey);
+	var filterIndex = initialMovieList[0].indexOf(filterKey);
 	var valuesList = new Array;
 	for(var i = 1;i < movieList.length;i++){		
-		if(valuesList.indexOf(movieList[i][filterIndex]) == -1){
-			valuesList.push(movieList[i][filterIndex]);
+		if(valuesList.indexOf(initialMovieList[i][filterIndex]) == -1){
+			valuesList.push(initialMovieList[i][filterIndex]);
 		}
 	}	
 	return valuesList.sort();
