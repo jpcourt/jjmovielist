@@ -1,6 +1,5 @@
 var movieList = new Array();
-var filterList = ['ANNEE', 'GENRE I', 'FORMAT'];
-var setFilters = new Array();
+var initialMovieList = new Array();
 
 function initialize(){
 	var xhr = new XMLHttpRequest();
@@ -8,7 +7,8 @@ function initialize(){
 	xhr.onreadystatechange = function(aEvt) {
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
-				movieList = JSON.parse(xhr.response);	
+				movieList = JSON.parse(xhr.response);
+				initialMovieList = JSON.parse(xhr.response);
 				aggregateColumns('ACTEUR', 'ACTEUR2', 'ACTEURS');
 				aggregateColumns('GENRE I', 'GENRE II', 'GENRES');
 				displayMovieList();
@@ -46,8 +46,15 @@ function displayFilteredList(){
 		match = true;
 		setFilters.forEach(function(filter){
 			filterIndex = movieList[0].indexOf(filter[0]);
-			if(movieList[i][filterIndex] != filter[1]){
-				match = false
+			if(filter[2] == 'match'){
+				if(movieList[i][filterIndex] != filter[1]){
+					match = false;
+				}
+			}
+			if(filter[2] == 'contain'){
+				if(stringInText(movieList[i][filterIndex],filter[1]) == false){
+					match = false;
+				}	
 			}
 		});
 		if(match == true){
