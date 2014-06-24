@@ -25,7 +25,7 @@ function manageFilter(filterKey){
 		filterContent += '<li onclick="useFilter('+"'"+filterKey['aggregatedColumn']+"','"+value+"', '"+filterKey['filterType']+"'"+')"><a href="#">'+value+'</a></li>';
 	});
 	filterContent += '<li onclick="useFilter('+"'"+filterKey['aggregatedColumn']+"'"+', false, '+"'reset'"+')"><a href="#">Tous</a></li>';
-	filterContent += '</ul></div><div class="btn-group"><input type"text" class="form-control" placeholder="Pas de filtre" disabled="true" id="'+filterKey+'_Set"></label></div>';
+	filterContent += '</ul></div><div class="btn-group"><input type"text" class="form-control" placeholder="Pas de filtre" disabled="true" id="'+filterKey['aggregatedColumn']+'_Set"></label></div>';
 	return filterContent; 
 }
 
