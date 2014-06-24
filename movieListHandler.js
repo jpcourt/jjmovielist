@@ -46,15 +46,19 @@ function displayFilteredList(){
 		match = true;
 		setFilters.forEach(function(filter){
 			filterIndex = movieList[0].indexOf(filter[0]);
-			if(filter[2] == 'match'){
-				if(movieList[i][filterIndex] != filter[1]){
-					match = false;
+			if(movieList[i][filterIndex] == ""){
+				match = false;
+			}else{
+				if(filter[2] == 'match'){
+					if(movieList[i][filterIndex] != filter[1]){
+						match = false;
+					}
 				}
-			}
-			if(filter[2] == 'contain'){
-				if(stringInText(movieList[i][filterIndex],filter[1]) == false){
-					match = false;
-				}	
+				if(filter[2] == 'contain'){
+					if(stringInText(movieList[i][filterIndex],filter[1]) == false){
+						match = false;
+					}	
+				}
 			}
 		});
 		if(match == true){
