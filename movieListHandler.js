@@ -55,7 +55,7 @@ function displayFilteredList(){
 					}
 				}
 				if(filter[2] == 'contain'){
-					if(stringInText(movieList[i][filterIndex],filter[1]) == false){
+					if(stringInText(filter[1], movieList[i][filterIndex]) == false){
 						match = false;
 					}	
 				}
@@ -77,7 +77,7 @@ function displayFilteredList(){
 function resetList(){
 	setFilters = new Array();
 	filterList.forEach(function(filter){
-		document.getElementById(filter+'_Set').value = "";
+		document.getElementById(filter['aggregateColumns']+'_Set').value = "";
 	});
 	displayMovieList();
 }
