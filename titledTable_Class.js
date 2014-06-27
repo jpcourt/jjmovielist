@@ -58,7 +58,7 @@ titledTable.prototype.addRow = function(newRow){
 };
 
 titledTable.prototype.deleteRowByIndex = function(index){
-	this.bodyTable.splice(index;1);
+	this.bodyTable.splice(index,1);
 };
 
 titledTable.prototype.deleteRowByValue = function(key, value){
