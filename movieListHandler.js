@@ -20,6 +20,7 @@ function initialize(){
 				for(var i = 1;i < initialMovieList.length;i++){
 					ttmovieList.addRow(initialMovieList[i]);
 				}
+				console.log(ttmovieList);
 				document.getElementById('movieList').innerHTML = ttmovieList.display();
 			}
 		}

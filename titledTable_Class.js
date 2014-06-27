@@ -57,6 +57,15 @@ titledTable.prototype.addRow = function(newRow){
 	}
 };
 
+titledTable.prototype.renderAsArray = function(){
+	var tmp = new Array;
+	tmp.push(this.header);
+	this.bodyTable.forEach(function(row){
+		tmp.push(row);
+	});
+	return tmp;
+};
+
 titledTable.prototype.deleteRowByIndex = function(index){
 	this.bodyTable.splice(index,1);
 };
