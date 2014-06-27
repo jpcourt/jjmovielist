@@ -1,8 +1,8 @@
 var titledTable = function(headerArray, bodyArray){
 	this.header = headerArray;
 	this.bodyTable = bodyArray;
-	this.colSize = headerArray.length;
-	this.rowSize = bodyArray.length;
+	this.colSize = this.header.length;
+	this.rowSize = this.bodyTable.length;
 }
 
 titledTable.prototype.display = function(){
