@@ -1,6 +1,8 @@
 var movieList = new Array();
 var initialMovieList = new Array();
 
+var ttmovieList = new titledTable(new Array, new Array);
+
 function initialize(){
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', 'spreadsheet.php');
@@ -13,6 +15,12 @@ function initialize(){
 				aggregateColumns('GENRE I', 'GENRE II', 'GENRES');
 				displayMovieList();
 				manageFilters();
+
+				ttmovieList.header = initialMovieList[0];
+				for(var i = 1;i < initialMovieList.length;i++){
+					ttmovieList.addRow(initialMovieList[i]);
+				}
+				document.getElementById('movieList').innerHTML = ttmovieList.display();
 			}
 		}
 	}
