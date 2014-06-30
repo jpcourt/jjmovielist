@@ -5,6 +5,20 @@ var titledTable = function(headerArray, bodyArray){
 	this.rowSize = this.bodyTable.length;
 }
 
+titledTable.prototype.changeHeader = function(newHeader){
+	this.header = newHeader;
+	colSize = newHeader.length;
+	this.bodyTable.forEach(function(row){
+		if(row.length < colSize){
+			for(var i = row.length; i < colSize;i++){
+				row.push("");
+			}
+		}else if(row.length > colSize){
+			row.splice(colSize,row.length-colSize);
+		}
+	});
+}
+
 titledTable.prototype.display = function(){
 	var tableContent = "<table class='table table-hover'><tr>";
 	this.header.forEach(function(cell){
@@ -53,6 +67,7 @@ titledTable.prototype.addRow = function(newRow){
 		return false;
 	}else{
 		this.bodyTable.push(newRow);
+		this.rowSize ++;
 		return true;
 	}
 };
