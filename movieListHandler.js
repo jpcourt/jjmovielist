@@ -16,7 +16,7 @@ function initialize(){
 				displayMovieList();
 				manageFilters();
 
-				ttmovieList.changeheader(initialMovieList[0]);
+				ttmovieList.changeHeader(initialMovieList[0]);
 				for(var i = 1;i < initialMovieList.length;i++){
 					ttmovieList.addRow(initialMovieList[i]);
 				}
