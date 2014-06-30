@@ -1,8 +1,8 @@
 var filterList = new Array();
-filterList.push({'initialColumn' : 'ANNEE', 'aggregatedColumn' : 'ANNEE', 'filterType' : 'match'});
-filterList.push({'initialColumn': 'GENRE I', 'aggregatedColumn' : 'GENRES', 'filterType' : 'contain'});
-filterList.push({'initialColumn' : 'FORMAT', 'aggregatedColumn' : 'FORMAT', 'filterType' : 'match'});
-filterList.push({'initialColumn' : 'ACTEUR', 'aggregatedColumn' : 'ACTEURS', 'filterType' : 'contain'});
+filterList.push({'initialColumn' : ['ANNEE'], 'aggregatedColumn' : 'ANNEE', 'filterType' : 'match'});
+filterList.push({'initialColumn': ['GENRE I', 'GENRE II'], 'aggregatedColumn' : 'GENRES', 'filterType' : 'contain'});
+filterList.push({'initialColumn' : ['FORMAT'], 'aggregatedColumn' : 'FORMAT', 'filterType' : 'match'});
+filterList.push({'initialColumn' : ['ACTEUR', 'ACTEUR2'], 'aggregatedColumn' : 'ACTEURS', 'filterType' : 'contain'});
 
 var setFilters = new Array();
 
@@ -30,13 +30,16 @@ function manageFilter(filterKey){
 }
 
 function getFilterValues(filterKey){
-	var filterIndex = initialMovieList[0].indexOf(filterKey);
 	var valuesList = new Array;
-	for(var i = 1;i < movieList.length;i++){		
-		if(valuesList.indexOf(initialMovieList[i][filterIndex]) == -1){
-			valuesList.push(initialMovieList[i][filterIndex]);
-		}
-	}	
+	var filterIndex;
+	filterKey.forEach(function(filterKeyItem){
+		filterIndex = initialMovieList[0].indexOf(filterKeyItem);
+		for(var i = 1;i < movieList.length;i++){		
+			if(valuesList.indexOf(initialMovieList[i][filterIndex]) == -1){
+				valuesList.push(initialMovieList[i][filterIndex]);
+			}
+		}	
+	});
 	return valuesList.sort();
 }
 
