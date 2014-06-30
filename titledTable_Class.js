@@ -7,7 +7,7 @@ var titledTable = function(headerArray, bodyArray){
 
 titledTable.prototype.changeHeader = function(newHeader){
 	this.header = newHeader;
-	colSize = newHeader.length;
+	this.colSize = newHeader.length;
 	this.bodyTable.forEach(function(row){
 		if(row.length < colSize){
 			for(var i = row.length; i < colSize;i++){
