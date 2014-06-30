@@ -21,7 +21,7 @@ function initialize(){
 					ttmovieList.addRow(initialMovieList[i]);
 				}
 				console.log(ttmovieList.renderAsArray());
-				document.getElementById('movieList').innerHTML = ttmovieList.display();
+				//document.getElementById('movieList').innerHTML = ttmovieList.display();
 			}
 		}
 	}
