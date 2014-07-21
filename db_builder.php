@@ -56,7 +56,7 @@
 			$value_list .= '"'.$value.'"';
 			$j++;
 		}
-		$request_insert = 'INSERT OR REPLACE INTO '.$db_table.' ('.$key_list.') VALUE ('.$value_list.')';
+		$request_insert = 'INSERT OR REPLACE INTO '.$db_table.' ('.$key_list.') VALUES ('.$value_list.')';
 		echo "Requete d'insert = ".$request_insert."\n";
 		$q = $db->exec($request_insert);
 	}
