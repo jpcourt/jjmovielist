@@ -8,11 +8,11 @@
 
 	echo 'Body = '.$body."\n";
 
-	$db_name = $body['name'];
-	$db_table = $body['table'];
-	$db_columns = $body['columns'];
-	$db_primarykey = $body['primaryKey'];
-	$db_content = $body['content'];
+	$db_name = $body->name;
+	$db_table = $body->table;
+	$db_columns = $body->columns;
+	$db_primarykey = $body->primaryKey;
+	$db_content = $body->content;
 
 	$db = new dBase($db_name.'.sqlite', './data');
 
