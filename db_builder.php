@@ -27,8 +27,8 @@
 			$key_list_with_type .= ', ';
 			$key_list .= ', ';
 		}
-		$key_list .= $value['name'];
-		$key_list_with_type .= $value['name'].' '.$value['type'];
+		$key_list .= $value;
+		$key_list_with_type .= $value.' STRING';
 		$i++;
 	}
 	$key_list_with_type .= ', PRIMARY KEY ('.$db_primarykey.')';
