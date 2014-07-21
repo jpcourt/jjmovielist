@@ -27,8 +27,8 @@
 			$key_list_with_type .= ', ';
 			$key_list .= ', ';
 		}
-		$key_list .= urlencode($value);
-		$key_list_with_type .= urlencode($value).' STRING';
+		$key_list .= str_replace(" ", "_", $value);
+		$key_list_with_type .= str_replace(" ", "_", $value).' STRING';
 		$i++;
 	}
 	$key_list_with_type .= ', PRIMARY KEY ('.$db_primarykey.')';
