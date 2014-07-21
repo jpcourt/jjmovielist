@@ -27,8 +27,8 @@
 			$key_list_with_type .= ', ';
 			$key_list .= ', ';
 		}
-		$key_list .= $value;
-		$key_list_with_type .= $value.' STRING';
+		$key_list .= urlencode($value);
+		$key_list_with_type .= urlencode($value).' STRING';
 		$i++;
 	}
 	$key_list_with_type .= ', PRIMARY KEY ('.$db_primarykey.')';
@@ -53,7 +53,7 @@
 			if($j > 0){
 				$value_list .= ', ';
 			}
-			$value_list .= $value;
+			$value_list .= '"'.$value.'"';
 			$j++;
 		}
 		$request_insert = 'INSERT OR REPLACE INTO '.$db_table.' ('.$key_list.') VALUE ('.$value_list.')';
