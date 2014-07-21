@@ -6,6 +6,8 @@
 
 	$body = json_decode(file_get_contents('php://input'));
 
+	echo 'Body = '.$body."\n";
+
 	$db_name = $body['name'];
 	$db_table = $body['table'];
 	$db_columns = $body['columns'];
