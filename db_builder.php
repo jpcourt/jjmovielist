@@ -37,7 +37,11 @@
 	echo 'Liste des colonnes avec type : '.$key_list_with_type."\n";
 	echo "Création de la table\n";
 
-	$q = $db->exec('CREATE TABLE IF NOT EXISTS '.$db_table.' ('.$key_list_with_type.')');
+	$request_create = 'CREATE TABLE IF NOT EXISTS '.$db_table.' ('.$key_list_with_type.')';
+
+	echo "Requete de création = ".$request_create."\n";
+
+	$q = $db->exec($request_create);
 
 	echo "Table ".$db_table." créée\n";
 	echo "Insertion des données dans la table\n";
@@ -52,7 +56,9 @@
 			$value_list .= $value;
 			$j++;
 		}
-		$q = $db->exec('INSERT OR REPLACE INTO '.$db_table.' ('.$key_list.') VALUE ('.$value_list.')');
+		$request_insert = 'INSERT OR REPLACE INTO '.$db_table.' ('.$key_list.') VALUE ('.$value_list.')';
+		echo "Requete d'insert = ".$request_insert."\n";
+		$q = $db->exec($request_insert);
 	}
 
 	echo $j." lignes insérées dans la table\n";
