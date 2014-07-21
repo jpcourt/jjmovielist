@@ -20,7 +20,7 @@ function buildDB(){
 						}
 					}
 				}
-				xhr2.send(body);
+				xhr2.send(JSON.stringify(body));
 			}
 		}
 	}
