@@ -2,9 +2,9 @@
 
 	require_once 'sqlite_class.php';
 
-	echo "CRéation du fichier SQLITE\n";
+	echo "Création du fichier SQLITE\n";
 
-	$body = file_get_contents('php://input');
+	$body = json_decode(file_get_contents('php://input'));
 
 	$db_name = $body['name'];
 	$db_table = $body['table'];
