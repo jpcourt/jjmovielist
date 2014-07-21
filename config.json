@@ -1,0 +1,6 @@
+{
+	"sourceUrl" : "https://docs.google.com/spreadsheet/pub?key=0As10YbL_zdnrdGJWdmdzNGhqZU5nZ3NkSDJyc1JWeXc&output=csv",
+	"sourceColumns" : ["FORMAT","TITRE","ANNEE","GENRE I","GENRE II","ACTEUR","ACTEUR2","IMDB","JJ","DISQUE"],
+	"filterList" : [],
+	"displayColumns" : []
+}

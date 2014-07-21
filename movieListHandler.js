@@ -9,8 +9,12 @@ function initialize(){
 	xhr.onreadystatechange = function(aEvt) {
 		if (xhr.readyState == 4) {
 			if (xhr.status == 200) {
-				movieList = JSON.parse(xhr.response);
-				initialMovieList = JSON.parse(xhr.response);
+				movieList.push(JSON.parse(xhr.response)['title'])
+				initialMovieList.push(JSON.parse(xhr.response)['title'])
+				JSON.parse(xhr.response)['content'].forEach(function(row){
+					movieList.push(row);
+					initialMovieList.push(row);
+				});
 				aggregateColumns('ACTEUR', 'ACTEUR2', 'ACTEURS');
 				aggregateColumns('GENRE I', 'GENRE II', 'GENRES');
 				displayMovieList();

@@ -2,11 +2,15 @@
 
 	$url = 'https://docs.google.com/spreadsheet/pub?key=0As10YbL_zdnrdGJWdmdzNGhqZU5nZ3NkSDJyc1JWeXc&output=csv';
 
-	//echo "Chargement du fichier<br>";
+	// Chargement du fichier
 
 	$handle = fopen($url, "r");
 
-	//echo "Construction du tableau<br>";
+	// Récupération de la ligne de titre du tableau
+
+	$title = fgetcsv($handle);
+
+	// Récupération du contenu du tableau
 
 	$data = fgetcsv($handle);
 
@@ -15,17 +19,10 @@
 		$data = fgetcsv($handle);
 	}
 
-	//echo "Lecture du tableau<br>";
+	$result = array();
+	$result['title'] = $title;
+	$result['content'] = $data_array;
 
-	/*$i = 0;
-
-	while(isset($data_array[$i])){
-		echo "value = ".$data_array[$i][1]."<br>";
-		$i++;
-	}*/
-
-	//echo "DONE<br>";
-
-	echo json_encode($data_array);
+	echo json_encode($result);
 
 ?>

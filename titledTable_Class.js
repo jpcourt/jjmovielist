@@ -1,13 +1,18 @@
 var titledTable = function(headerArray, bodyArray){
 	this.header = headerArray;
 	this.bodyTable = bodyArray;
-	this.colSize = this.header.length;
-	this.rowSize = this.bodyTable.length;
+}
+
+titleTable.prototype.colSize = function(){
+	return this.bodyTable.length;
+}
+
+titleTable.prototype.rowSize = function(){
+	return this.header.length;
 }
 
 titledTable.prototype.changeHeader = function(newHeader){
 	this.header = newHeader;
-	this.colSize = newHeader.length;
 	this.bodyTable.forEach(function(row){
 		if(row.length < colSize){
 			for(var i = row.length; i < colSize;i++){
@@ -47,7 +52,7 @@ titledTable.prototype.partialDisplay = function(displayArray){
 	this.bodyTable.forEach(function(row){
 		tableContent += "<tr>";
 		row.forEach(function(cell){
-			if(displayArray.indexOf(this.headerOf(cell, row)) != -1){
+			if(displayArray.indexOf(this.header[row.indexOf(cell)]) != -1){
 				tableContent += "<td>"+cell+"</td>";
 			}
 		});
@@ -67,7 +72,6 @@ titledTable.prototype.addRow = function(newRow){
 		return false;
 	}else{
 		this.bodyTable.push(newRow);
-		this.rowSize ++;
 		return true;
 	}
 };
